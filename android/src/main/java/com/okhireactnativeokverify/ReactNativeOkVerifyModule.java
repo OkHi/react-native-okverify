@@ -7,9 +7,9 @@ import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 
-public class ReactNativeOkverifyModule extends ReactContextBaseJavaModule {
+public class ReactNativeOkVerifyModule extends ReactContextBaseJavaModule {
 
-  public ReactNativeOkverifyModule(ReactApplicationContext reactContext) {
+  public ReactNativeOkVerifyModule(ReactApplicationContext reactContext) {
     super(reactContext);
   }
 
@@ -21,6 +21,6 @@ public class ReactNativeOkverifyModule extends ReactContextBaseJavaModule {
 
   @ReactMethod
   public void multiply(int a, int b, Promise promise) {
-    promise.resolve(a*b*2);
+    promise.resolve(a*b*4);
   }
 }
