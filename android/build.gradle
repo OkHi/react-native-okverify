@@ -29,7 +29,7 @@ android {
   compileSdkVersion getExtOrIntegerDefault('compileSdkVersion')
   buildToolsVersion getExtOrDefault('buildToolsVersion')
   defaultConfig {
-    minSdkVersion 16
+    minSdkVersion 23
     targetSdkVersion getExtOrIntegerDefault('targetSdkVersion')
     versionCode 1
     versionName "1.0"
@@ -134,4 +134,5 @@ dependencies {
   api 'com.facebook.react:react-native:+'
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
   implementation 'com.github.OkHi:android-okverify:v1.1.2'
+  implementation 'com.github.OkHi:android-core:v1.1.0'
 }
