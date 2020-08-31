@@ -29,6 +29,8 @@ type OkVerifyType = {
 
 const OkVerify: OkVerifyType = NativeModules.ReactNativeOkverify;
 
+export * from './types';
+
 export const init = (notification?: OkHiNotification) => {
   if (notification) {
     const isValid = validateNotification(notification);
