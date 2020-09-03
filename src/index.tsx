@@ -14,7 +14,7 @@ import type { OkHiNotification } from './types';
 import type { OkHiLocation } from '@okhi/react-native-core';
 
 type OkVerifyType = {
-  init(notification?: OkHiNotification): void;
+  init(notification: OkHiNotification | { [key: string]: any }): void;
   start(configuration: {
     branchId: string;
     clientKey: string;
@@ -42,7 +42,7 @@ export const init = (notification?: OkHiNotification) => {
     }
     OkVerify.init(notification);
   } else {
-    OkVerify.init();
+    OkVerify.init({});
   }
 };
 
