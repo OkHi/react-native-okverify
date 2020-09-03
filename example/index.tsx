@@ -11,4 +11,6 @@ OkVerify.init({
   channelName: 'OkHi Verification',
 });
 
+// OkVerify.init();
+
 AppRegistry.registerComponent(appName, () => App);

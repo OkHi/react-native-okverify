@@ -1,4 +1,4 @@
-import { NativeModules, Rationale } from 'react-native';
+import { NativeModules, Rationale, Platform } from 'react-native';
 import {
   OkHiException,
   OkHiUser,
@@ -14,7 +14,7 @@ import type { OkHiNotification } from './types';
 import type { OkHiLocation } from '@okhi/react-native-core';
 
 type OkVerifyType = {
-  init(notification?: OkHiNotification): void;
+  init(notification: OkHiNotification | { [key: string]: any }): void;
   start(configuration: {
     branchId: string;
     clientKey: string;
@@ -32,6 +32,9 @@ const OkVerify: OkVerifyType = NativeModules.ReactNativeOkverify;
 export * from './types';
 
 export const init = (notification?: OkHiNotification) => {
+  if (Platform.OS !== 'android') {
+    return;
+  }
   if (notification) {
     const isValid = validateNotification(notification);
     if (!isValid) {
@@ -42,7 +45,7 @@ export const init = (notification?: OkHiNotification) => {
     }
     OkVerify.init(notification);
   } else {
-    OkVerify.init();
+    OkVerify.init({});
   }
 };
 
@@ -58,6 +61,15 @@ export const startVerification = (configuration: {
     const branchId = auth.getBranchId();
     const clientKey = auth.getClientKey();
     const mode = auth.getContext().getMode();
+
+    if (Platform.OS !== 'android') {
+      return reject(
+        new OkHiException({
+          code: OkHiException.UNSUPPORTED_PLATFORM_CODE,
+          message: OkHiException.UNSUPPORTED_PLATFORM_MESSAGE,
+        })
+      );
+    }
 
     if (typeof id !== 'string') {
       return reject(
@@ -113,6 +125,9 @@ export const startVerification = (configuration: {
 };
 
 export const stopVerification = (locationId: string) => {
+  if (Platform.OS !== 'android') {
+    return Promise.resolve(locationId);
+  }
   return OkVerify.stop(locationId);
 };
 
@@ -121,6 +136,14 @@ export const canStartVerification = (configuration: {
   locationPermissionRationale: Rationale;
 }): Promise<boolean> => {
   return new Promise(async (resolve, reject) => {
+    if (Platform.OS !== 'android') {
+      reject(
+        new OkHiException({
+          code: OkHiException.UNSUPPORTED_PLATFORM_CODE,
+          message: OkHiException.UNSUPPORTED_PLATFORM_MESSAGE,
+        })
+      );
+    }
     const { requestServices, locationPermissionRationale } = configuration;
     try {
       if (requestServices) {
