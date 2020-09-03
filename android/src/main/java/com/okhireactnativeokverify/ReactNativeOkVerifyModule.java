@@ -35,9 +35,12 @@ public class ReactNativeOkVerifyModule extends ReactContextBaseJavaModule {
 
   @ReactMethod
   public void init (ReadableMap notification) {
-    if (notification == null) {
-      OkVerify.init(getReactApplicationContext());
-    } else {
+    boolean hasNotification = notification.hasKey("title")
+      && notification.hasKey("text")
+      && notification.hasKey("channelId")
+      && notification.hasKey("channelName")
+      && notification.hasKey("channelDescription");
+    if (hasNotification) {
       OkVerify.init(getReactApplicationContext(), new OkHiNotification(
         Objects.requireNonNull(notification.getString("title")),
         Objects.requireNonNull(notification.getString("text")),
@@ -47,6 +50,8 @@ public class ReactNativeOkVerifyModule extends ReactContextBaseJavaModule {
         notification.hasKey("importance") ? notification.getInt("importance") : 2,
         notification.hasKey("icon") ? notification.getInt("icon") : getReactApplicationContext().getApplicationInfo().icon
       ));
+    } else {
+      OkVerify.init(getReactApplicationContext());
     }
   }
 
