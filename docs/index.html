@@ -1,0 +1,256 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>@okhi/react-native-okverify</title>
+	<meta name="description" content="Documentation for @okhi/react-native-okverify">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">@okhi/react-native-okverify</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1>@okhi/react-native-okverify</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#okhireact-native-okverify" id="okhireact-native-okverify" style="color: inherit; text-decoration: none;">
+					<h1>@okhi/react-native-okverify</h1>
+				</a>
+				<p>The OkVerify Android library enables you to verify a user&#39;s OkHi address</p>
+				<a href="#prerequisite-libraries" id="prerequisite-libraries" style="color: inherit; text-decoration: none;">
+					<h2>Prerequisite libraries</h2>
+				</a>
+				<ul>
+					<li><a href="https://github.com/OkHi/react-native-core#okhireact-native-core">@okhi/react-native-core</a></li>
+					<li><a href="https://github.com/OkHi/react-native-okcollect#okhireact-native-okcollect">@okhi/react-native-okcollect</a></li>
+				</ul>
+				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+					<h2>Installation</h2>
+				</a>
+				<pre><code class="language-sh">npm install @okhi/react-native-okverify</code></pre>
+				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
+					<h2>Usage</h2>
+				</a>
+				<a href="#initialisation" id="initialisation" style="color: inherit; text-decoration: none;">
+					<h3>initialisation</h3>
+				</a>
+				<p>Run the <code>init</code> method once on app start. Place this in your <code>index.js</code> file.</p>
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> { AppRegistry } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react-native&#x27;</span>;
+<span class="hljs-keyword">import</span> App <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./src/App&#x27;</span>;
+<span class="hljs-keyword">import</span> { name <span class="hljs-keyword">as</span> appName } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./app.json&#x27;</span>;
+<span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> OkVerify <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@okhi/react-native-okverify&#x27;</span>;
+
+<span class="hljs-comment">// init method takes in an optional notification configuration that&#x27;ll be used</span>
+<span class="hljs-comment">// to start a foreground service in order to transmit verification</span>
+<span class="hljs-comment">// signals to OkHi servers.</span>
+
+OkVerify.init({
+  <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Verification in progress&#x27;</span>,
+  <span class="hljs-attr">text</span>: <span class="hljs-string">&#x27;Verification in progress&#x27;</span>,
+  <span class="hljs-attr">channelDescription</span>: <span class="hljs-string">&#x27;OkHi verification status updates&#x27;</span>,
+  <span class="hljs-attr">channelId</span>: <span class="hljs-string">&#x27;okhi&#x27;</span>,
+  <span class="hljs-attr">channelName</span>: <span class="hljs-string">&#x27;OkHi Verification&#x27;</span>,
+});
+
+<span class="hljs-comment">// OkVerify.init();</span>
+
+AppRegistry.registerComponent(appName, <span class="hljs-function">() =&gt;</span> App);</code></pre>
+				<a href="#implementation" id="implementation" style="color: inherit; text-decoration: none;">
+					<h3>implementation</h3>
+				</a>
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> React, { useState } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react&#x27;</span>;
+<span class="hljs-keyword">import</span> { Button, Rationale } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react-native&#x27;</span>;
+<span class="hljs-keyword">import</span> {
+  OkHiException,
+  OkHiUser,
+  requestLocationPermission,
+} <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@okhi/react-native-core&#x27;</span>;
+<span class="hljs-keyword">import</span> OkHiLocationManager, {
+  OkCollectSuccessResponse,
+} <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@okhi/react-native-okcollect&#x27;</span>;
+<span class="hljs-keyword">import</span> {
+  canStartVerification,
+  startVerification,
+} <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@okhi/react-native-okverify&#x27;</span>;
+<span class="hljs-keyword">import</span> auth <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;OkHiAuth.js&#x27;</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">App</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">const</span> [launch, setLaunch] = React.useState(<span class="hljs-literal">false</span>);
+
+  <span class="hljs-keyword">const</span> locationPermissionRationale: Rationale = {
+    <span class="hljs-attr">message</span>:
+      <span class="hljs-string">&#x27;Hey, we need permissions to enable you create addresses at your current location&#x27;</span>,
+    <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Location permission required&#x27;</span>,
+    <span class="hljs-attr">buttonPositive</span>: <span class="hljs-string">&#x27;Grant&#x27;</span>,
+  };
+
+  useEffect(<span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-comment">// location permission is required to enable users to create</span>
+    <span class="hljs-comment">// addresses at their current location</span>
+    <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">requestPermission</span>(<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">await</span> requestLocationPermission(locationPermissionRationale);
+    }
+    requestPermission();
+  }, []);
+
+  <span class="hljs-keyword">const</span> user: OkHiUser = {
+    <span class="hljs-attr">firstName</span>: <span class="hljs-string">&#x27;Bob&#x27;</span>,
+    <span class="hljs-attr">lastName</span>: <span class="hljs-string">&#x27;Mark&#x27;</span>,
+    <span class="hljs-attr">phone</span>: <span class="hljs-string">&#x27;+254712345678&#x27;</span>, <span class="hljs-comment">// Make sure its in MSISDN standard format</span>
+  };
+
+  <span class="hljs-keyword">const</span> handleOnSuccess = <span class="hljs-keyword">async</span> (response: OkCollectSuccessResponse) =&gt; {
+    setLaunch(<span class="hljs-literal">false</span>);
+    <span class="hljs-keyword">try</span> {
+      <span class="hljs-comment">// setting requestServices to true will request any missing permission</span>
+      <span class="hljs-comment">// or any unavailable service to be turned on by the user on your behalf</span>
+      <span class="hljs-keyword">const</span> canStart = <span class="hljs-keyword">await</span> canStartVerification({
+        <span class="hljs-attr">requestServices</span>: <span class="hljs-literal">true</span>,
+        locationPermissionRationale,
+      });
+      <span class="hljs-keyword">if</span> (canStart) {
+        <span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> startVerification(response);
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;Started verification for: &#x27;</span> + result);
+      }
+    } <span class="hljs-keyword">catch</span> (error) {
+      <span class="hljs-built_in">console</span>.log(error.code);
+      <span class="hljs-built_in">console</span>.log(error.message);
+    }
+  };
+
+  <span class="hljs-keyword">const</span> handleOnError = <span class="hljs-function">(<span class="hljs-params">error: OkHiException</span>) =&gt;</span> {
+    setLaunch(<span class="hljs-literal">false</span>);
+    <span class="hljs-built_in">console</span>.log(error.code);
+    <span class="hljs-built_in">console</span>.log(error.message);
+  };
+
+  <span class="hljs-comment">// called when user taps on the top right close button</span>
+  <span class="hljs-keyword">const</span> handleOnCloseRequest = <span class="hljs-function">() =&gt;</span> {
+    setLaunch(<span class="hljs-literal">false</span>);
+  };
+
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{</span> <span class="hljs-attr">flex:</span> <span class="hljs-attr">1</span> }}&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">Button</span> <span class="hljs-attr">onPress</span>=<span class="hljs-string">{()</span> =&gt;</span> setLaunch(true)} title=&quot;Start Verification&quot; /&gt;
+      <span class="hljs-tag">&lt;<span class="hljs-name">OkHiLocationManager</span>
+        <span class="hljs-attr">auth</span>=<span class="hljs-string">{auth}</span>
+        <span class="hljs-attr">user</span>=<span class="hljs-string">{user}</span>
+        <span class="hljs-attr">onSuccess</span>=<span class="hljs-string">{handleOnSuccess}</span>
+        <span class="hljs-attr">onError</span>=<span class="hljs-string">{handleOnError}</span>
+        <span class="hljs-attr">onCloseRequest</span>=<span class="hljs-string">{handleOnCloseRequest}</span>
+        <span class="hljs-attr">launch</span>=<span class="hljs-string">{launch}</span>
+      /&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span>
+  );
+}</code></pre>
+				<a href="#contributing" id="contributing" style="color: inherit; text-decoration: none;">
+					<h2>Contributing</h2>
+				</a>
+				<p>See the <a href="CONTRIBUTING.md">contributing guide</a> to learn how to contribute to the repository and the development workflow.</p>
+				<a href="#license" id="license" style="color: inherit; text-decoration: none;">
+					<h2>License</h2>
+				</a>
+				<p>MIT</p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/okhinotification.html" class="tsd-kind-icon">Ok<wbr>HiNotification</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#okverify" class="tsd-kind-icon">Ok<wbr>Verify</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#canstartverification" class="tsd-kind-icon">can<wbr>Start<wbr>Verification</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#init" class="tsd-kind-icon">init</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#startverification" class="tsd-kind-icon">start<wbr>Verification</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#stopverification" class="tsd-kind-icon">stop<wbr>Verification</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

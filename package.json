@@ -22,13 +22,14 @@
   "scripts": {
     "test": "jest",
     "typescript": "tsc --noEmit",
-    "lint": "eslint \"**/*.{js,ts,tsx}\"",
+    "lint": "eslint src/\"**/*.{js,ts,tsx}\" --ignore-pattern node_modules/ && eslint example/src/\"**/*.{js,ts,tsx}\" --ignore-pattern node_modules/",
     "prepare": "bob build",
     "release": "release-it",
     "example": "yarn --cwd example",
     "pods": "cd example && pod-install --quiet",
     "bootstrap": "yarn example && yarn && yarn pods",
-    "pub": "yarn test && yarn typescript && yarn lint && cd android && gradle clean && cd ../ && npm publish"
+    "pub": "yarn test && yarn typescript && yarn lint && cd android && gradle clean && cd ../ && yarn docs && npm publish",
+    "docs": "typedoc --out ./docs ./src --tsconfig tsconfig.json --exclude \"./src/*.ts\" --excludePrivate --excludeProtected"
   },
   "keywords": [
     "react-native",
@@ -61,6 +62,7 @@
     "react": "16.11.0",
     "react-native": "0.62.2",
     "release-it": "^13.5.8",
+    "typedoc": "0.17.8",
     "typescript": "^3.8.3"
   },
   "peerDependencies": {

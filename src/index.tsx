@@ -10,26 +10,20 @@ import {
   requestLocationPermission,
 } from '@okhi/react-native-core';
 import { validateNotification } from './Util';
-import type { OkHiNotification } from './types';
 import type { OkHiLocation } from '@okhi/react-native-core';
+import type { OkVerifyType } from './types';
 
-type OkVerifyType = {
-  init(notification: OkHiNotification | { [key: string]: any }): void;
-  start(configuration: {
-    branchId: string;
-    clientKey: string;
-    phone: string;
-    locationId: string;
-    lat: number;
-    lon: number;
-    mode: string;
-  }): Promise<string>;
-  stop(locationId: string): Promise<string>;
-};
+export interface OkHiNotification {
+  title: string;
+  text: string;
+  channelId: string;
+  channelName: string;
+  channelDescription: string;
+  importance?: number;
+  icon?: number;
+}
 
 const OkVerify: OkVerifyType = NativeModules.ReactNativeOkverify;
-
-export * from './types';
 
 export const init = (notification?: OkHiNotification) => {
   if (Platform.OS !== 'android') {

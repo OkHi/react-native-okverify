@@ -1,4 +1,4 @@
-import type { OkHiNotification } from './types';
+import type { OkHiNotification } from './index';
 
 export const validateNotification = (notification: OkHiNotification) => {
   const {
