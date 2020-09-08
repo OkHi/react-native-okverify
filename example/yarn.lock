@@ -765,20 +765,20 @@
     "@types/yargs" "^15.0.0"
     chalk "^3.0.0"
 
-"@okhi/react-native-core@^1.0.7":
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/@okhi/react-native-core/-/react-native-core-1.0.7.tgz#ec71a1774fff2ffe64c18eabe204755ae06d4008"
-  integrity sha512-2U9CyjgNuw3gtYAWI9N8d0bdVz8t8SgyRFhEg3UfmGZk1Q8v1YluPNI94CVjuER4h0h18lZ82q/TrU8KJyVnYA==
+"@okhi/react-native-core@^1.0.8":
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/@okhi/react-native-core/-/react-native-core-1.0.8.tgz#1eefc72f549775d08e8fcadfe99fb8dad7258ba7"
+  integrity sha512-GGveNdVuHa/hTwSwBfUgYOYGXRo+7xRSRLvlS9dWx6ka1XpmqS9JT98hItBvMm72V1Whmb4UVseg7Z+J9b6KiA==
   dependencies:
     axios "^0.20.0"
     js-base64 "^3.4.5"
 
-"@okhi/react-native-okcollect@^1.0.9":
-  version "1.0.9"
-  resolved "https://registry.yarnpkg.com/@okhi/react-native-okcollect/-/react-native-okcollect-1.0.9.tgz#07e208e59559c3dd0a4d2317f65d1bbd0718dbe2"
-  integrity sha512-8ng99PPZHDFCVgujtqp49ZWm8J69QRRszrPJ+mR3ZkMD7X6EXwQPv1hlCTfHjyIDbRFvWoRqMh3gGTrjeJVasw==
+"@okhi/react-native-okcollect@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@okhi/react-native-okcollect/-/react-native-okcollect-1.1.0.tgz#9d9194aeda2ee6ab520ca33e347107a615905477"
+  integrity sha512-Tx2r5OZ9NAXl7vdq9DD8pIH1ruuDIgA4NE3V3hP25T8BEju9ZuZL3R0qPcoeTI2HiYitetyfhY5n/PBCpG2ZnA==
   dependencies:
-    "@okhi/react-native-core" "^1.0.7"
+    "@okhi/react-native-core" "^1.0.8"
     react-native-webview "^10.8.2"
     typedoc "0.17.8"
 
