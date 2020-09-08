@@ -11,20 +11,20 @@ import {
 } from '@okhi/react-native-core';
 import { validateNotification } from './Util';
 import type { OkHiLocation } from '@okhi/react-native-core';
-import type { OkVerifyType } from './types';
+import type { OkVerifyType, OkHiNotification } from './types';
 
-export interface OkHiNotification {
-  title: string;
-  text: string;
-  channelId: string;
-  channelName: string;
-  channelDescription: string;
-  importance?: number;
-  icon?: number;
-}
+export { OkHiNotification } from './types';
 
+/**
+ * @ignore
+ */
 const OkVerify: OkVerifyType = NativeModules.ReactNativeOkverify;
 
+/**
+ * The init method performs crucial checks and verification signal uploads that are necessary for the library to work effectively.
+ * The init method takes in an optional, but highly recommended notification configuration that'll be used to start an Android foreground service.
+ * The service will attempt to immediately upload verification signals as soon as they occur.
+ */
 export const init = (notification?: OkHiNotification) => {
   if (Platform.OS !== 'android') {
     return;
@@ -43,6 +43,11 @@ export const init = (notification?: OkHiNotification) => {
   }
 };
 
+/**
+ * Attempts to start the address verification process.
+ * @param configuration The OkCollectSuccessResponse object once an address has been successfully created. (https://okhi.github.io/react-native-okcollect/interfaces/okcollectsuccessresponse.html)
+ * @returns {Promise<string>} Promise that resolves with the location id.
+ */
 export const startVerification = (configuration: {
   location: OkHiLocation;
   user: OkHiUser;
@@ -118,6 +123,11 @@ export const startVerification = (configuration: {
   });
 };
 
+/**
+ * Attemps to stop the verification process of particular location.
+ * @param {string} locationId
+ * @returns {Promise<string>} The locaiton id.
+ */
 export const stopVerification = (locationId: string) => {
   if (Platform.OS !== 'android') {
     return Promise.resolve(locationId);
@@ -125,6 +135,13 @@ export const stopVerification = (locationId: string) => {
   return OkVerify.stop(locationId);
 };
 
+/**
+ * Checks whether all necessary permissions and services are available in order to start the verification process.
+ * @param {Object} configuration Object that determines whether or not to request these permissions and services from the user.
+ * @param {boolean} configuration.requestServices Flag that determines whether to request the services from the user.
+ * @param {Object} configuration.locationPermissionRationale Location permission rationale See: https://reactnative.dev/docs/permissionsandroid#request
+ * @returns {Promise<boolean>} A promise that resolves to a boolean value indicating whether or not all conditions are met to star the verification process.
+ */
 export const canStartVerification = (configuration: {
   requestServices: boolean;
   locationPermissionRationale: Rationale;
