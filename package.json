@@ -1,6 +1,6 @@
 {
   "name": "@okhi/react-native-okverify",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "The OkVerify Android library enables you to verify a user&#39;s OkHi address",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -29,7 +29,7 @@
     "pods": "cd example && pod-install --quiet",
     "bootstrap": "yarn example && yarn && yarn pods",
     "pub": "yarn test && yarn typescript && yarn lint && cd android && gradle clean && cd ../ && yarn docs && npm publish",
-    "docs": "typedoc --out ./docs ./src --tsconfig tsconfig.json --exclude \"./src/*.ts\" --excludePrivate --excludeProtected"
+    "docs": "typedoc --out ./docs ./src --tsconfig tsconfig.json --excludePrivate --excludeProtected"
   },
   "keywords": [
     "react-native",
