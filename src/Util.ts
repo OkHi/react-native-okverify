@@ -1,5 +1,7 @@
 import type { OkHiNotification } from './index';
-
+/**
+ * @ignore
+ */
 export const validateNotification = (notification: OkHiNotification) => {
   const {
     channelDescription,
