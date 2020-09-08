@@ -39,11 +39,6 @@ export default function App() {
     try {
       const isReady = await canStartVerification({
         requestServices: true,
-        locationPermissionRationale: {
-          message: 'Hey we need permissions',
-          title: 'Location permission required',
-          buttonPositive: 'Grant',
-        },
       });
       if (isReady) {
         const result = await startVerification(response);

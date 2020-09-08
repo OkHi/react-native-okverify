@@ -1,4 +1,4 @@
-import { NativeModules, Rationale, Platform } from 'react-native';
+import { NativeModules, Platform } from 'react-native';
 import {
   OkHiException,
   OkHiUser,
@@ -139,12 +139,10 @@ export const stopVerification = (locationId: string) => {
  * Checks whether all necessary permissions and services are available in order to start the verification process.
  * @param {Object} configuration Object that determines whether or not to request these permissions and services from the user.
  * @param {boolean} configuration.requestServices Flag that determines whether to request the services from the user.
- * @param {Object} configuration.locationPermissionRationale Location permission rationale See: https://reactnative.dev/docs/permissionsandroid#request
  * @returns {Promise<boolean>} A promise that resolves to a boolean value indicating whether or not all conditions are met to star the verification process.
  */
 export const canStartVerification = (configuration: {
   requestServices: boolean;
-  locationPermissionRationale: Rationale;
 }): Promise<boolean> => {
   return new Promise(async (resolve, reject) => {
     if (Platform.OS !== 'android') {
@@ -155,12 +153,12 @@ export const canStartVerification = (configuration: {
         })
       );
     }
-    const { requestServices, locationPermissionRationale } = configuration;
+    const { requestServices } = configuration;
     try {
       if (requestServices) {
         await requestEnableGooglePlayServices();
         await requestEnableLocationServices();
-        await requestLocationPermission(locationPermissionRationale);
+        await requestLocationPermission();
       }
       Promise.all([
         isGooglePlayServicesAvailable(),
