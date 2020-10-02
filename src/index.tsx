@@ -4,10 +4,10 @@ import {
   OkHiUser,
   isGooglePlayServicesAvailable,
   isLocationPermissionGranted,
-  isLocationServicesEnabled,
   requestEnableGooglePlayServices,
   requestEnableLocationServices,
-  requestLocationPermission,
+  requestBackgroundLocationPermission,
+  isBackgroundLocationPermissionGranted,
 } from '@okhi/react-native-core';
 import { validateNotification } from './Util';
 import type { OkHiLocation } from '@okhi/react-native-core';
@@ -158,12 +158,12 @@ export const canStartVerification = (configuration: {
       if (requestServices) {
         await requestEnableGooglePlayServices();
         await requestEnableLocationServices();
-        await requestLocationPermission();
+        await requestBackgroundLocationPermission();
       }
       Promise.all([
         isGooglePlayServicesAvailable(),
         isLocationPermissionGranted(),
-        isLocationServicesEnabled(),
+        isBackgroundLocationPermissionGranted(),
       ])
         .then((result) => {
           resolve(!result.includes(false));

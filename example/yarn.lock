@@ -773,6 +773,14 @@
     axios "^0.20.0"
     js-base64 "^3.4.5"
 
+"@okhi/react-native-core@^1.0.9":
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/@okhi/react-native-core/-/react-native-core-1.0.9.tgz#695a9f21c0a93b564e3bd518773f94dc39c8ec08"
+  integrity sha512-8AUWfSdfDWfv11FErYhvOfgb3IRL8ZyhfZLWGLfuYyk2ZjygyTgilEhpOxlP48VkBybj23LlPXIhSJ1OlRb1ig==
+  dependencies:
+    axios "^0.20.0"
+    js-base64 "^3.4.5"
+
 "@okhi/react-native-okcollect@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@okhi/react-native-okcollect/-/react-native-okcollect-1.1.0.tgz#9d9194aeda2ee6ab520ca33e347107a615905477"

@@ -1575,10 +1575,10 @@
   dependencies:
     "@types/node" ">= 8"
 
-"@okhi/react-native-core@^1.0.8":
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/@okhi/react-native-core/-/react-native-core-1.0.8.tgz#1eefc72f549775d08e8fcadfe99fb8dad7258ba7"
-  integrity sha512-GGveNdVuHa/hTwSwBfUgYOYGXRo+7xRSRLvlS9dWx6ka1XpmqS9JT98hItBvMm72V1Whmb4UVseg7Z+J9b6KiA==
+"@okhi/react-native-core@^1.0.9":
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/@okhi/react-native-core/-/react-native-core-1.0.9.tgz#695a9f21c0a93b564e3bd518773f94dc39c8ec08"
+  integrity sha512-8AUWfSdfDWfv11FErYhvOfgb3IRL8ZyhfZLWGLfuYyk2ZjygyTgilEhpOxlP48VkBybj23LlPXIhSJ1OlRb1ig==
   dependencies:
     axios "^0.20.0"
     js-base64 "^3.4.5"
