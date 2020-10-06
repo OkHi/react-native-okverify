@@ -29,7 +29,7 @@ const auth = OkHiAuth.withContext(
     clientKey: secret.clientKey,
   },
   context
-) as any;
+);
 
 export default function App() {
   const [launch, setLaunch] = React.useState(false);
