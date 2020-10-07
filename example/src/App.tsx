@@ -43,6 +43,8 @@ export default function App() {
       if (isReady) {
         const result = await startVerification(response);
         console.log('Started verification for: ' + result);
+      } else {
+        console.log('Not ready');
       }
     } catch (error) {
       console.log(error.code);
