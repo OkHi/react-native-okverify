@@ -765,20 +765,18 @@
     "@types/yargs" "^15.0.0"
     chalk "^3.0.0"
 
-"@okhi/react-native-core@^1.0.10":
+"@okhi/react-native-core@https://github.com/OkHi/react-native-core.git#develop":
   version "1.0.10"
-  resolved "https://registry.yarnpkg.com/@okhi/react-native-core/-/react-native-core-1.0.10.tgz#e5a1180f2b0339f8801a70ba782563bd88eee1b9"
-  integrity sha512-vtXoE9QgJJW2nEUBXlZHOkqP2+HDF85MYIPYo90hywxSmwQUbfHj4QwE8UuYtRSddW7G2TRgJRT7zbTcZ0JGLA==
+  resolved "https://github.com/OkHi/react-native-core.git#8e7fb336ccf1355f7757654a8e5cfc0a19d4d0ce"
   dependencies:
     axios "^0.20.0"
     js-base64 "^3.4.5"
 
-"@okhi/react-native-okcollect@^1.2.0":
+"@okhi/react-native-okcollect@https://github.com/OkHi/react-native-okcollect.git#develop":
   version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@okhi/react-native-okcollect/-/react-native-okcollect-1.2.0.tgz#e5c5fe2a51ef17d24fb71375743442666d3b308e"
-  integrity sha512-2g4uFo78mPpqUftfhksiGBgSZ2O+nxWHrURwzyX+jXFtk4L39/yNaoBrIP1UQvsrbk6SRhcOL8cSawaol6s1Zw==
+  resolved "https://github.com/OkHi/react-native-okcollect.git#36bc2ac29fbeff497e4fe063ea77a70f1b4c9b64"
   dependencies:
-    "@okhi/react-native-core" "^1.0.10"
+    "@okhi/react-native-core" "https://github.com/OkHi/react-native-core.git#develop"
     react-native-webview "^10.8.2"
     typedoc "0.17.8"
 
@@ -2225,9 +2223,9 @@ hermes-profile-transformer@^0.0.6:
     source-map "^0.7.3"
 
 highlight.js@^10.0.0:
-  version "10.2.1"
-  resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-10.2.1.tgz#09784fe2e95612abbefd510948945d4fe6fa9668"
-  integrity sha512-A+sckVPIb9zQTUydC9lpRX1qRFO/N0OKEh0NwIr65ckvWA/oMY8v9P3+kGRK3w2ULSh9E8v5MszXafodQ6039g==
+  version "10.3.1"
+  resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-10.3.1.tgz#3ca6bf007377faae347e8135ff25900aac734b9a"
+  integrity sha512-jeW8rdPdhshYKObedYg5XGbpVgb1/DT4AHvDFXhkU7UnGSIjy9kkJ7zHG7qplhFHMitTSzh5/iClKQk3Kb2RFQ==
 
 http-errors@~1.7.2:
   version "1.7.3"
@@ -2357,6 +2355,13 @@ is-ci@^2.0.0:
   integrity sha512-YfJT7rkpQB0updsdHLGWrvhBJfcfzNNawYDNIyQXJz0IViGf75O8EBPKSdvw2rF+LGCsX4FZ8tcr3b19LcZq4w==
   dependencies:
     ci-info "^2.0.0"
+
+is-core-module@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/is-core-module/-/is-core-module-2.0.0.tgz#58531b70aed1db7c0e8d4eb1a0a2d1ddd64bd12d"
+  integrity sha512-jq1AH6C8MuteOoBPwkxHafmByhL9j5q4OaPGdbuD+ZtQJVzH+i6E3BJDQcBA09k57i2Hh2yQbEG8yObZ0jdlWw==
+  dependencies:
+    has "^1.0.3"
 
 is-data-descriptor@^0.1.4:
   version "0.1.4"
@@ -3769,7 +3774,15 @@ resolve-url@^0.2.1:
   resolved "https://registry.yarnpkg.com/resolve-url/-/resolve-url-0.2.1.tgz#2c637fe77c893afd2a663fe21aa9080068e2052a"
   integrity sha1-LGN/53yJOv0qZj/iGqkIAGjiBSo=
 
-resolve@^1.1.6, resolve@^1.13.1, resolve@^1.3.2, resolve@^1.5.0, resolve@^1.8.1:
+resolve@^1.1.6:
+  version "1.18.1"
+  resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.18.1.tgz#018fcb2c5b207d2a6424aee361c5a266da8f4130"
+  integrity sha512-lDfCPaMKfOJXjy0dPayzPdF1phampNWr3qFCjAu+rw/qbQmr5jWH5xN2hwh9QKfw9E5v4hwV7A+jrCmL8yjjqA==
+  dependencies:
+    is-core-module "^2.0.0"
+    path-parse "^1.0.6"
+
+resolve@^1.13.1, resolve@^1.3.2, resolve@^1.5.0, resolve@^1.8.1:
   version "1.17.0"
   resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.17.0.tgz#b25941b54968231cc2d1bb76a79cb7f2c0bf8444"
   integrity sha512-ic+7JYiV8Vi2yzQGFWOkiZD5Z9z7O2Zhm9XMaTxdJExKasieFCr+yXZ/WmXsckHiKl12ar0y6XiXDx3m4RHn1w==
@@ -4360,9 +4373,9 @@ uglify-es@^3.1.9:
     source-map "~0.6.1"
 
 uglify-js@^3.1.4:
-  version "3.11.1"
-  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.11.1.tgz#32d274fea8aac333293044afd7f81409d5040d38"
-  integrity sha512-OApPSuJcxcnewwjSGGfWOjx3oix5XpmrK9Z2j0fTRlHGoZ49IU6kExfZTM0++fCArOOCet+vIfWwFHbvWqwp6g==
+  version "3.11.3"
+  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.11.3.tgz#b2f8c87826344f091ba48c417c499d6cba5d5786"
+  integrity sha512-wDRziHG94mNj2n3R864CvYw/+pc9y/RNImiTyrrf8BzgWn75JgFSwYvXrtZQMnMnOp/4UTrf3iCSQxSStPiByA==
 
 ultron@1.0.x:
   version "1.0.2"

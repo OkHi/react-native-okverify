@@ -1591,10 +1591,9 @@
   dependencies:
     "@types/node" ">= 8"
 
-"@okhi/react-native-core@^1.0.10":
+"@okhi/react-native-core@https://github.com/OkHi/react-native-core.git#develop":
   version "1.0.10"
-  resolved "https://registry.yarnpkg.com/@okhi/react-native-core/-/react-native-core-1.0.10.tgz#e5a1180f2b0339f8801a70ba782563bd88eee1b9"
-  integrity sha512-vtXoE9QgJJW2nEUBXlZHOkqP2+HDF85MYIPYo90hywxSmwQUbfHj4QwE8UuYtRSddW7G2TRgJRT7zbTcZ0JGLA==
+  resolved "https://github.com/OkHi/react-native-core.git#8e7fb336ccf1355f7757654a8e5cfc0a19d4d0ce"
   dependencies:
     axios "^0.20.0"
     js-base64 "^3.4.5"
