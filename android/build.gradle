@@ -29,7 +29,7 @@ android {
   compileSdkVersion getExtOrIntegerDefault('compileSdkVersion')
   buildToolsVersion getExtOrDefault('buildToolsVersion')
   defaultConfig {
-    minSdkVersion 16
+    minSdkVersion 21
     targetSdkVersion getExtOrIntegerDefault('targetSdkVersion')
     versionCode 1
     versionName "1.0.7"
@@ -133,6 +133,6 @@ dependencies {
   // noinspection GradleDynamicVersion
   api 'com.facebook.react:react-native:+'
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-  implementation 'com.github.okhi:android-okverify:qa-20-10-SNAPSHOT'
-  implementation 'com.github.okhi:android-core:qa-20-10-SNAPSHOT'
+  implementation 'com.github.okhi:android-okverify:89a3e5474118a98eb12113ac2bcf73e7df0ef98c'
+  implementation 'com.github.okhi:android-core:47beefb8cb869b7b3ad51339c856d6297c92a5b7'
 }
