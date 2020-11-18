@@ -34,6 +34,8 @@ const auth = OkHiAuth.withContext(
 export default function App() {
   const [launch, setLaunch] = React.useState(false);
 
+  console.log(launch);
+
   const handleOnSuccess = async (response: OkCollectSuccessResponse) => {
     setLaunch(false);
     try {

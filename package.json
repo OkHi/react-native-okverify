@@ -1,6 +1,6 @@
 {
   "name": "@okhi/react-native-okverify",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "The OkVerify Android library enables you to verify a user&#39;s OkHi address",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -142,6 +142,6 @@
     ]
   },
   "dependencies": {
-    "@okhi/react-native-core": "^1.0.9"
+    "@okhi/react-native-core": "^1.1.0"
   }
 }
