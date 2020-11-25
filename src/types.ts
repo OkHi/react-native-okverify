@@ -35,6 +35,17 @@ export interface OkHiNotification {
    * See: https://developer.android.com/training/notify-user/channels
    */
   icon?: number;
+
+  /**
+   * (Android): The notification's id that'll be used to update any running notification
+   * See: https://developer.android.com/reference/androidx/core/app/NotificationManagerCompat#notify(int,%20android.app.Notification)
+   */
+  notificationId?: number;
+
+  /**
+   * (Android): The notification's request code that'll be used in the pending intent
+   */
+  notificationRequestCode?: number;
 }
 
 /**
@@ -52,4 +63,7 @@ export type OkVerifyType = {
     mode: string;
   }): Promise<string>;
   stop(locationId: string): Promise<string>;
+  startForegroundService(): Promise<boolean>;
+  stopForegroundService(): Promise<boolean>;
+  isForegroundServiceRunning(): Promise<boolean>;
 };
