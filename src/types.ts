@@ -63,4 +63,7 @@ export type OkVerifyType = {
     mode: string;
   }): Promise<string>;
   stop(locationId: string): Promise<string>;
+  startForegroundService(): Promise<boolean>;
+  stopForegroundService(): Promise<boolean>;
+  isForegroundServiceRunning(): Promise<boolean>;
 };

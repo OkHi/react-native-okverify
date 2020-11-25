@@ -174,3 +174,48 @@ export const canStartVerification = (configuration: {
     }
   });
 };
+
+export const startForegroundService = (): Promise<boolean> => {
+  return new Promise((resolve, reject) => {
+    OkVerify.startForegroundService()
+      .then(resolve)
+      .catch((error: OkHiException) =>
+        reject(
+          new OkHiException({
+            code: error.code || OkHiException.UNKNOWN_ERROR_CODE,
+            message: error.message,
+          })
+        )
+      );
+  });
+};
+
+export const stopForegroundService = (): Promise<boolean> => {
+  return new Promise((resolve, reject) => {
+    OkVerify.stopForegroundService()
+      .then(resolve)
+      .catch((error: OkHiException) =>
+        reject(
+          new OkHiException({
+            code: error.code || OkHiException.UNKNOWN_ERROR_CODE,
+            message: error.message,
+          })
+        )
+      );
+  });
+};
+
+export const isForegroundServiceRunning = (): Promise<boolean> => {
+  return new Promise((resolve, reject) => {
+    OkVerify.isForegroundServiceRunning()
+      .then(resolve)
+      .catch((error: OkHiException) =>
+        reject(
+          new OkHiException({
+            code: error.code || OkHiException.UNKNOWN_ERROR_CODE,
+            message: error.message,
+          })
+        )
+      );
+  });
+};
