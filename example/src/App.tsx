@@ -7,6 +7,7 @@ import OkHiLocationManager, {
 import {
   canStartVerification,
   startVerification,
+  startForegroundService,
 } from '@okhi/react-native-okverify';
 import { OkHiContext, OkHiAuth } from '@okhi/react-native-core';
 
@@ -43,7 +44,9 @@ export default function App() {
         requestServices: true,
       });
       if (isReady) {
-        const result = await startVerification(response);
+        const result =
+          (await startVerification(response)) &&
+          (await startForegroundService());
         console.log('Started verification for: ' + result);
       } else {
         console.log('Not ready');
