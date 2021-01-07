@@ -751,18 +751,20 @@
     "@types/yargs" "^15.0.0"
     chalk "^3.0.0"
 
-"@okhi/react-native-core@https://github.com/OkHi/react-native-core.git#develop":
-  version "1.1.0"
-  resolved "https://github.com/OkHi/react-native-core.git#90167fb573a16aae78d70eea027814435d62107e"
+"@okhi/react-native-core@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@okhi/react-native-core/-/react-native-core-1.2.0.tgz#1f5b3c7124903b347fc80bff910c797d27d89b53"
+  integrity sha512-HmnQLt7fE2/MKg4UCE6vY/vubPL4sBuurjwj5RszPrBEJ50izPfArFipv0H7vVBHkxBjaf9wsuMlPtJ/ws5sjw==
   dependencies:
     axios "^0.20.0"
     js-base64 "^3.4.5"
 
-"@okhi/react-native-okcollect@https://github.com/OkHi/react-native-okcollect.git#develop":
-  version "1.2.1"
-  resolved "https://github.com/OkHi/react-native-okcollect.git#04e25b0524845d5f0d68ac0688d7747557cfd6a5"
+"@okhi/react-native-okcollect@^1.2.4":
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/@okhi/react-native-okcollect/-/react-native-okcollect-1.2.4.tgz#8e82a6479b15aa33f522e16723589e5d577dbe01"
+  integrity sha512-Ho7njxKYDZXaAUNR/GUNvNQ7r7tBkrws4uK40OWYbcy3zLasZoHddiOChC1AmY3gA+ERYkvI+N1o4bdYb37XxA==
   dependencies:
-    "@okhi/react-native-core" "https://github.com/OkHi/react-native-core.git#develop"
+    "@okhi/react-native-core" "^1.2.0"
     react-native-webview "^10.8.2"
     typedoc "0.17.8"
 
