@@ -174,3 +174,59 @@ export const canStartVerification = (configuration: {
     }
   });
 };
+
+/**
+ * Starts a foreground service to improve the overall stability and reliability of identifying and transmitting of address verification signals
+ * (Requires) an address to be registred for verification i.e after invoking the startVerification method
+ * (Requires) a notification to be configured via the init method
+ */
+export const startForegroundService = (): Promise<boolean> => {
+  return new Promise((resolve, reject) => {
+    OkVerify.startForegroundService()
+      .then(resolve)
+      .catch((error: OkHiException) =>
+        reject(
+          new OkHiException({
+            code: error.code || OkHiException.UNKNOWN_ERROR_CODE,
+            message: error.message,
+          })
+        )
+      );
+  });
+};
+
+/**
+ * Stops any running foreground service
+ */
+export const stopForegroundService = (): Promise<boolean> => {
+  return new Promise((resolve, reject) => {
+    OkVerify.stopForegroundService()
+      .then(resolve)
+      .catch((error: OkHiException) =>
+        reject(
+          new OkHiException({
+            code: error.code || OkHiException.UNKNOWN_ERROR_CODE,
+            message: error.message,
+          })
+        )
+      );
+  });
+};
+
+/**
+ * Checks whether the foreground service is running
+ */
+export const isForegroundServiceRunning = (): Promise<boolean> => {
+  return new Promise((resolve, reject) => {
+    OkVerify.isForegroundServiceRunning()
+      .then(resolve)
+      .catch((error: OkHiException) =>
+        reject(
+          new OkHiException({
+            code: error.code || OkHiException.UNKNOWN_ERROR_CODE,
+            message: error.message,
+          })
+        )
+      );
+  });
+};

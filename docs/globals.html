@@ -2732,7 +2732,16 @@ img {
 			<a href="globals.html#init" class="tsd-kind-icon">init</a>
 		</li>
 		<li class=" tsd-kind-function">
+			<a href="globals.html#isforegroundservicerunning" class="tsd-kind-icon">is<wbr>Foreground<wbr>Service<wbr>Running</a>
+		</li>
+		<li class=" tsd-kind-function">
+			<a href="globals.html#startforegroundservice" class="tsd-kind-icon">start<wbr>Foreground<wbr>Service</a>
+		</li>
+		<li class=" tsd-kind-function">
 			<a href="globals.html#startverification" class="tsd-kind-icon">start<wbr>Verification</a>
+		</li>
+		<li class=" tsd-kind-function">
+			<a href="globals.html#stopforegroundservice" class="tsd-kind-icon">stop<wbr>Foreground<wbr>Service</a>
 		</li>
 		<li class=" tsd-kind-function">
 			<a href="globals.html#stopverification" class="tsd-kind-icon">stop<wbr>Verification</a>
@@ -2907,7 +2916,10 @@ AppRegistry.registerComponent(appName, <span class="hljs-function">() =&gt;</spa
 						<ul class="tsd-index-list">
 							<li class="tsd-kind-function"><a href="globals.html#canstartverification" class="tsd-kind-icon">can<wbr>Start<wbr>Verification</a></li>
 							<li class="tsd-kind-function"><a href="globals.html#init" class="tsd-kind-icon">init</a></li>
+							<li class="tsd-kind-function"><a href="globals.html#isforegroundservicerunning" class="tsd-kind-icon">is<wbr>Foreground<wbr>Service<wbr>Running</a></li>
+							<li class="tsd-kind-function"><a href="globals.html#startforegroundservice" class="tsd-kind-icon">start<wbr>Foreground<wbr>Service</a></li>
 							<li class="tsd-kind-function"><a href="globals.html#startverification" class="tsd-kind-icon">start<wbr>Verification</a></li>
+							<li class="tsd-kind-function"><a href="globals.html#stopforegroundservice" class="tsd-kind-icon">stop<wbr>Foreground<wbr>Service</a></li>
 							<li class="tsd-kind-function"><a href="globals.html#stopverification" class="tsd-kind-icon">stop<wbr>Verification</a></li>
 						</ul>
 					</section>
@@ -2926,7 +2938,7 @@ AppRegistry.registerComponent(appName, <span class="hljs-function">() =&gt;</spa
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/OkHi/react-native-okverify/blob/52ed091/src/index.tsx#L144">src/index.tsx:144</a></li>
+								<li>Defined in <a href="https://github.com/OkHi/react-native-okverify/blob/ecabcf7/src/index.tsx#L144">src/index.tsx:144</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -2965,7 +2977,7 @@ AppRegistry.registerComponent(appName, <span class="hljs-function">() =&gt;</spa
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/OkHi/react-native-okverify/blob/52ed091/src/index.tsx#L28">src/index.tsx:28</a></li>
+								<li>Defined in <a href="https://github.com/OkHi/react-native-okverify/blob/ecabcf7/src/index.tsx#L28">src/index.tsx:28</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -2986,6 +2998,52 @@ AppRegistry.registerComponent(appName, <span class="hljs-function">() =&gt;</spa
 				</ul>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-function">
+				<a name="isforegroundservicerunning" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagConst">Const</span> is<wbr>Foreground<wbr>Service<wbr>Running</h3>
+				<ul class="tsd-signatures tsd-kind-function">
+					<li class="tsd-signature tsd-kind-icon">is<wbr>Foreground<wbr>Service<wbr>Running<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/OkHi/react-native-okverify/blob/ecabcf7/src/index.tsx#L219">src/index.tsx:219</a></li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Checks whether the foreground service is running</p>
+							</div>
+						</div>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-function">
+				<a name="startforegroundservice" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagConst">Const</span> start<wbr>Foreground<wbr>Service</h3>
+				<ul class="tsd-signatures tsd-kind-function">
+					<li class="tsd-signature tsd-kind-icon">start<wbr>Foreground<wbr>Service<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/OkHi/react-native-okverify/blob/ecabcf7/src/index.tsx#L183">src/index.tsx:183</a></li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Starts a foreground service to improve the overall stability and reliability of identifying and transmitting of address verification signals
+									(Requires) an address to be registred for verification i.e after invoking the startVerification method
+								(Requires) a notification to be configured via the init method</p>
+							</div>
+						</div>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-function">
 				<a name="startverification" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagConst">Const</span> start<wbr>Verification</h3>
 				<ul class="tsd-signatures tsd-kind-function">
@@ -2995,7 +3053,7 @@ AppRegistry.registerComponent(appName, <span class="hljs-function">() =&gt;</spa
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/OkHi/react-native-okverify/blob/52ed091/src/index.tsx#L51">src/index.tsx:51</a></li>
+								<li>Defined in <a href="https://github.com/OkHi/react-native-okverify/blob/ecabcf7/src/index.tsx#L51">src/index.tsx:51</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -3031,6 +3089,28 @@ AppRegistry.registerComponent(appName, <span class="hljs-function">() =&gt;</spa
 				</ul>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-function">
+				<a name="stopforegroundservice" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagConst">Const</span> stop<wbr>Foreground<wbr>Service</h3>
+				<ul class="tsd-signatures tsd-kind-function">
+					<li class="tsd-signature tsd-kind-icon">stop<wbr>Foreground<wbr>Service<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/OkHi/react-native-okverify/blob/ecabcf7/src/index.tsx#L201">src/index.tsx:201</a></li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Stops any running foreground service</p>
+							</div>
+						</div>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-function">
 				<a name="stopverification" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagConst">Const</span> stop<wbr>Verification</h3>
 				<ul class="tsd-signatures tsd-kind-function">
@@ -3040,7 +3120,7 @@ AppRegistry.registerComponent(appName, <span class="hljs-function">() =&gt;</spa
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/OkHi/react-native-okverify/blob/52ed091/src/index.tsx#L131">src/index.tsx:131</a></li>
+								<li>Defined in <a href="https://github.com/OkHi/react-native-okverify/blob/ecabcf7/src/index.tsx#L131">src/index.tsx:131</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
