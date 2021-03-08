@@ -8,6 +8,7 @@ import {
   requestEnableLocationServices,
   requestBackgroundLocationPermission,
   isBackgroundLocationPermissionGranted,
+  OkHiAuth,
 } from '@okhi/react-native-core';
 import { validateNotification } from './Util';
 import type { OkHiLocation } from '@okhi/react-native-core';
@@ -219,6 +220,50 @@ export const stopForegroundService = (): Promise<boolean> => {
 export const isForegroundServiceRunning = (): Promise<boolean> => {
   return new Promise((resolve, reject) => {
     OkVerify.isForegroundServiceRunning()
+      .then(resolve)
+      .catch((error: OkHiException) =>
+        reject(
+          new OkHiException({
+            code: error.code || OkHiException.UNKNOWN_ERROR_CODE,
+            message: error.message,
+          })
+        )
+      );
+  });
+};
+
+/**
+ * Attempts to start the address verification process.
+ * @param auth The OkHiAuth object
+ * @param phoneNumber The user's phone number
+ * @param locationId The OkHi location id obtained after a user creates an address with OkHi using OkCollect
+ * @param coords Pair of coordinates use to verify the address
+ * @returns {Promise<string>} Promise that resolves with the location id.
+ */
+export const start = (
+  auth: OkHiAuth,
+  phoneNumber: string,
+  locationId: string,
+  coords: { lat: number; lon: number }
+) => {
+  return new Promise((resolve, reject) => {
+    if (Platform.OS !== 'android') {
+      return reject(
+        new OkHiException({
+          code: OkHiException.UNSUPPORTED_PLATFORM_CODE,
+          message: OkHiException.UNSUPPORTED_PLATFORM_MESSAGE,
+        })
+      );
+    }
+    OkVerify.start({
+      branchId: auth.getBranchId(),
+      clientKey: auth.getClientKey(),
+      lat: coords.lat,
+      lon: coords.lon,
+      phone: phoneNumber,
+      mode: auth.getContext().getMode(),
+      locationId: locationId,
+    })
       .then(resolve)
       .catch((error: OkHiException) =>
         reject(
