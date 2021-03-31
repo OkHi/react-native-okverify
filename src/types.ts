@@ -30,11 +30,6 @@ export interface OkHiNotification {
    * See: https://developer.android.com/reference/android/app/NotificationManager
    */
   importance?: number;
-  /**
-   * (Android): The notification's resource icon id.
-   * See: https://developer.android.com/training/notify-user/channels
-   */
-  icon?: number;
 
   /**
    * (Android): The notification's id that'll be used to update any running notification
