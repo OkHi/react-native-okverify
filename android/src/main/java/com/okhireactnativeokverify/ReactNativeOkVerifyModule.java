@@ -48,7 +48,6 @@ public class ReactNativeOkVerifyModule extends ReactContextBaseJavaModule {
         Objects.requireNonNull(notification.getString("channelName")),
         Objects.requireNonNull(notification.getString("channelDescription")),
         notification.hasKey("importance") ? notification.getInt("importance") : 2,
-        notification.hasKey("icon") ? notification.getInt("icon") : getReactApplicationContext().getApplicationInfo().icon,
         notification.hasKey("notificationId") ? notification.getInt("notificationId") : 1,
         notification.hasKey("notificationRequestCode") ? notification.getInt("notificationRequestCode") : 2
       ));
