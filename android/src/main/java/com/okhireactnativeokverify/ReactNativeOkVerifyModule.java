@@ -87,9 +87,17 @@ public class ReactNativeOkVerifyModule extends ReactContextBaseJavaModule {
   @ReactMethod
   public void stop (String locationId, Promise promise) {
     if (locationId != null) {
-      OkVerify.stop(getReactApplicationContext(), locationId);
+      OkVerify.stop(getReactApplicationContext(), locationId, new OkVerifyCallback<String>() {
+        @Override
+        public void onSuccess(String result) {
+          promise.resolve(result);
+        }
+        @Override
+        public void onError(OkHiException e) {
+          promise.reject(e.getCode(), e.getMessage());
+        }
+      });
     }
-    promise.resolve(locationId);
   }
 
   @ReactMethod
