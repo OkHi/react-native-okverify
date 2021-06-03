@@ -1,7 +1,5 @@
 package com.okhireactnativeokverify;
 
-import android.util.Log;
-
 import androidx.annotation.NonNull;
 
 import com.facebook.react.bridge.Promise;
@@ -12,8 +10,6 @@ import com.facebook.react.bridge.ReadableMap;
 
 import java.util.Objects;
 
-import io.okhi.android_core.models.OkHiAppContext;
-import io.okhi.android_core.models.OkHiAuth;
 import io.okhi.android_core.models.OkHiException;
 import io.okhi.android_core.models.OkHiLocation;
 import io.okhi.android_core.models.OkHiUser;
@@ -58,29 +54,27 @@ public class ReactNativeOkVerifyModule extends ReactContextBaseJavaModule {
 
   @ReactMethod
   public void start (ReadableMap data, Promise promise) {
-    String branchId = data.getString("branchId");
-    String clientKey = data.getString("clientKey");
     String phone = data.getString("phone");
     String locationId = data.getString("locationId");
-    String mode = data.getString("mode");
     double lat = data.getDouble("lat");
     double lon = data.getDouble("lon");
     OkHiLocation location = new OkHiLocation(Objects.requireNonNull(locationId), lat, lon);
     OkHiUser user = new OkHiUser.Builder(Objects.requireNonNull(phone)).build();
-    OkHiAuth auth = new OkHiAuth.Builder(Objects.requireNonNull(branchId), Objects.requireNonNull(clientKey))
-      .withContext(new OkHiAppContext.Builder(Objects.requireNonNull(mode)).build())
-      .build();
-    OkVerify okVerify = new OkVerify.Builder(auth, getCurrentActivity()).build();
-    okVerify.start(user, location, new OkVerifyCallback<String>() {
-      @Override
-      public void onSuccess(String result) {
-        promise.resolve(result);
-      }
-      @Override
-      public void onError(OkHiException e) {
-        promise.reject(e.getCode(), e.getMessage());
-      }
-    });
+    try {
+      OkVerify okVerify = new OkVerify.Builder(getCurrentActivity()).build();
+      okVerify.start(user, location, new OkVerifyCallback<String>() {
+        @Override
+        public void onSuccess(String result) {
+          promise.resolve(result);
+        }
+        @Override
+        public void onError(OkHiException e) {
+          promise.reject(e.getCode(), e.getMessage());
+        }
+      });
+    } catch (OkHiException exception) {
+      promise.reject(exception.getCode(), exception.getMessage());
+    }
   }
 
   @ReactMethod
