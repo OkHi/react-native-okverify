@@ -3,34 +3,13 @@ import { StyleSheet, View, Button } from 'react-native';
 import OkHiLocationManager, {
   OkCollectSuccessResponse,
 } from '@okhi/react-native-okcollect';
-
 import {
   canStartVerification,
   startVerification,
   startForegroundService,
 } from '@okhi/react-native-okverify';
-import { OkHiContext, OkHiAuth } from '@okhi/react-native-core';
 
 import secret from './secret.json';
-
-// define context first
-const context = new OkHiContext({
-  mode: secret.mode,
-  app: {
-    name: 'My Demo app',
-    version: '1.0.0',
-    build: 1,
-  },
-});
-
-// create auth with or without context
-const auth = OkHiAuth.withContext(
-  {
-    branchId: secret.branchId,
-    clientKey: secret.clientKey,
-  },
-  context
-);
 
 export default function App() {
   const [launch, setLaunch] = React.useState(false);
@@ -69,7 +48,6 @@ export default function App() {
     <View style={styles.container}>
       <Button onPress={() => setLaunch(true)} title="Start Verification" />
       <OkHiLocationManager
-        auth={auth}
         user={{ phone: secret.phone }}
         onSuccess={handleOnSuccess}
         onError={handleOnError}
