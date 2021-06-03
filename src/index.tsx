@@ -8,7 +8,6 @@ import {
   requestEnableLocationServices,
   requestBackgroundLocationPermission,
   isBackgroundLocationPermissionGranted,
-  OkHiAuth,
 } from '@okhi/react-native-core';
 import { validateNotification } from './Util';
 import type { OkHiLocation } from '@okhi/react-native-core';
@@ -52,15 +51,11 @@ export const init = (notification?: OkHiNotification) => {
 export const startVerification = (configuration: {
   location: OkHiLocation;
   user: OkHiUser;
-  auth: any;
 }): Promise<string> => {
   return new Promise((resolve, reject) => {
-    const { auth, location, user } = configuration;
+    const { location, user } = configuration;
     const { phone } = user;
     const { id, lat, lon } = location;
-    const branchId = auth.getBranchId();
-    const clientKey = auth.getClientKey();
-    const mode = auth.getContext().getMode();
 
     if (Platform.OS !== 'android') {
       return reject(
@@ -95,21 +90,10 @@ export const startVerification = (configuration: {
         })
       );
     }
-    if (typeof branchId !== 'string' || typeof clientKey !== 'string') {
-      return reject(
-        new OkHiException({
-          code: OkHiException.UNAUTHORIZED_CODE,
-          message: 'Missing credentials from authentication object',
-        })
-      );
-    }
     OkVerify.start({
-      branchId,
-      clientKey,
       lat,
       lon,
       phone,
-      mode,
       locationId: id,
     })
       .then(resolve)
@@ -241,7 +225,6 @@ export const isForegroundServiceRunning = (): Promise<boolean> => {
  * @returns {Promise<string>} Promise that resolves with the location id.
  */
 export const start = (
-  auth: OkHiAuth,
   phoneNumber: string,
   locationId: string,
   coords: { lat: number; lon: number }
@@ -256,12 +239,9 @@ export const start = (
       );
     }
     OkVerify.start({
-      branchId: auth.getBranchId(),
-      clientKey: auth.getClientKey(),
       lat: coords.lat,
       lon: coords.lon,
       phone: phoneNumber,
-      mode: auth.getContext().getMode(),
       locationId: locationId,
     })
       .then(resolve)
