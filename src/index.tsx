@@ -51,15 +51,11 @@ export const init = (notification?: OkHiNotification) => {
 export const startVerification = (configuration: {
   location: OkHiLocation;
   user: OkHiUser;
-  auth: any;
 }): Promise<string> => {
   return new Promise((resolve, reject) => {
-    const { auth, location, user } = configuration;
+    const { location, user } = configuration;
     const { phone } = user;
     const { id, lat, lon } = location;
-    const branchId = auth.getBranchId();
-    const clientKey = auth.getClientKey();
-    const mode = auth.getContext().getMode();
 
     if (Platform.OS !== 'android') {
       return reject(
@@ -94,21 +90,10 @@ export const startVerification = (configuration: {
         })
       );
     }
-    if (typeof branchId !== 'string' || typeof clientKey !== 'string') {
-      return reject(
-        new OkHiException({
-          code: OkHiException.UNAUTHORIZED_CODE,
-          message: 'Missing credentials from authentication object',
-        })
-      );
-    }
     OkVerify.start({
-      branchId,
-      clientKey,
       lat,
       lon,
       phone,
-      mode,
       locationId: id,
     })
       .then(resolve)
@@ -219,6 +204,46 @@ export const stopForegroundService = (): Promise<boolean> => {
 export const isForegroundServiceRunning = (): Promise<boolean> => {
   return new Promise((resolve, reject) => {
     OkVerify.isForegroundServiceRunning()
+      .then(resolve)
+      .catch((error: OkHiException) =>
+        reject(
+          new OkHiException({
+            code: error.code || OkHiException.UNKNOWN_ERROR_CODE,
+            message: error.message,
+          })
+        )
+      );
+  });
+};
+
+/**
+ * Attempts to start the address verification process.
+ * @param auth The OkHiAuth object
+ * @param phoneNumber The user's phone number
+ * @param locationId The OkHi location id obtained after a user creates an address with OkHi using OkCollect
+ * @param coords Pair of coordinates use to verify the address
+ * @returns {Promise<string>} Promise that resolves with the location id.
+ */
+export const start = (
+  phoneNumber: string,
+  locationId: string,
+  coords: { lat: number; lon: number }
+) => {
+  return new Promise((resolve, reject) => {
+    if (Platform.OS !== 'android') {
+      return reject(
+        new OkHiException({
+          code: OkHiException.UNSUPPORTED_PLATFORM_CODE,
+          message: OkHiException.UNSUPPORTED_PLATFORM_MESSAGE,
+        })
+      );
+    }
+    OkVerify.start({
+      lat: coords.lat,
+      lon: coords.lon,
+      phone: phoneNumber,
+      locationId: locationId,
+    })
       .then(resolve)
       .catch((error: OkHiException) =>
         reject(
