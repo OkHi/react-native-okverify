@@ -32,7 +32,7 @@ android {
     minSdkVersion 24
     targetSdkVersion getExtOrIntegerDefault('targetSdkVersion')
     versionCode 1
-    versionName "1.0.7"
+    versionName "1.3.0"
 
   }
 
@@ -133,6 +133,6 @@ dependencies {
   // noinspection GradleDynamicVersion
   api 'com.facebook.react:react-native:+'
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-  implementation 'com.github.okhi:android-core:cc8e2fb4239dad66b4606dc964560e607e77c07b'
-  implementation 'com.github.okhi:android-okverify:5aa35941cc6a427ff958c62cba9fbac698be389d'
+  implementation 'com.github.okhi:android-core:ea6296dced9eb4ed18d5b09f018fd1b348cafb05'
+  implementation 'com.github.okhi:android-okverify:7c04fa8875dc90187bb56bdd3d19dd1de7c8caae'
 }
