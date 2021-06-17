@@ -1,8 +1,6 @@
 import * as React from 'react';
 import { StyleSheet, View, Button } from 'react-native';
-import OkHiLocationManager, {
-  OkCollectSuccessResponse,
-} from '@okhi/react-native-okcollect';
+import OkHiLocationManager from '@okhi/react-native-okcollect';
 import {
   canStartVerification,
   startVerification,
@@ -15,7 +13,7 @@ export default function App() {
 
   console.log(launch);
 
-  const handleOnSuccess = async (response: OkCollectSuccessResponse) => {
+  const handleOnSuccess = async (response: any) => {
     setLaunch(false);
     try {
       const isReady = await canStartVerification({
