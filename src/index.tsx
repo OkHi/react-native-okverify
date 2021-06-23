@@ -45,18 +45,25 @@ export const init = (notification?: OkHiNotification) => {
 
 /**
  * Attempts to start the address verification process.
- * @param configuration The OkCollectSuccessResponse object once an address has been successfully created. (https://okhi.github.io/react-native-okcollect/interfaces/okcollectsuccessresponse.html)
+ * @param response The OkCollectSuccessResponse object once an address has been successfully created. (https://okhi.github.io/react-native-okcollect/interfaces/okcollectsuccessresponse.html)
+ * @param configuration Lets you customise the functionality of address verification
  * @returns {Promise<string>} Promise that resolves with the location id.
  */
-export const startVerification = (configuration: {
-  location: OkHiLocation;
-  user: OkHiUser;
-}): Promise<string> => {
+export const startVerification = (
+  response: {
+    location: OkHiLocation;
+    user: OkHiUser;
+  },
+  configuration?: { withForeground?: boolean }
+): Promise<string> => {
   return new Promise((resolve, reject) => {
-    const { location, user } = configuration;
+    const { location, user } = response;
     const { phone } = user;
     const { id, lat, lon } = location;
-
+    const withForeground =
+      configuration && typeof configuration.withForeground !== 'undefined'
+        ? configuration.withForeground
+        : true;
     if (Platform.OS !== 'android') {
       return reject(
         new OkHiException({
@@ -95,6 +102,7 @@ export const startVerification = (configuration: {
       lon,
       phone,
       locationId: id,
+      withForeground,
     })
       .then(resolve)
       .catch((error: OkHiException) =>
@@ -227,7 +235,8 @@ export const isForegroundServiceRunning = (): Promise<boolean> => {
 export const start = (
   phoneNumber: string,
   locationId: string,
-  coords: { lat: number; lon: number }
+  coords: { lat: number; lon: number },
+  configuration?: { withForeground?: boolean }
 ) => {
   return new Promise((resolve, reject) => {
     if (Platform.OS !== 'android') {
@@ -238,11 +247,16 @@ export const start = (
         })
       );
     }
+    const withForeground =
+      configuration && typeof configuration.withForeground !== 'undefined'
+        ? configuration.withForeground
+        : true;
     OkVerify.start({
       lat: coords.lat,
       lon: coords.lon,
       phone: phoneNumber,
       locationId: locationId,
+      withForeground,
     })
       .then(resolve)
       .catch((error: OkHiException) =>
