@@ -53,6 +53,7 @@ export type OkVerifyType = {
     locationId: string;
     lat: number;
     lon: number;
+    withForeground: boolean;
   }): Promise<string>;
   stop(locationId: string): Promise<string>;
   startForegroundService(): Promise<boolean>;

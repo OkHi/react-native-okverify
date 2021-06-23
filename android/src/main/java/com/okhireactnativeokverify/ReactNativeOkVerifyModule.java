@@ -58,11 +58,12 @@ public class ReactNativeOkVerifyModule extends ReactContextBaseJavaModule {
     String locationId = data.getString("locationId");
     double lat = data.getDouble("lat");
     double lon = data.getDouble("lon");
+    boolean withForeground = data.getBoolean("withForeground");
     OkHiLocation location = new OkHiLocation(Objects.requireNonNull(locationId), lat, lon);
     OkHiUser user = new OkHiUser.Builder(Objects.requireNonNull(phone)).build();
     try {
       OkVerify okVerify = new OkVerify.Builder(getCurrentActivity()).build();
-      okVerify.start(user, location, new OkVerifyCallback<String>() {
+      okVerify.start(user, location, withForeground, new OkVerifyCallback<String>() {
         @Override
         public void onSuccess(String result) {
           promise.resolve(result);
