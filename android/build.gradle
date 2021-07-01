@@ -134,5 +134,5 @@ dependencies {
   api 'com.facebook.react:react-native:+'
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
   implementation 'com.github.okhi:android-core:2079c3e7432dc8c41e33afacdaa1e579fec74d30'
-  implementation 'com.github.okhi:android-okverify:9c864ec6a5d5e5d60ea848022a1975ff583deaa9'
+  implementation 'com.github.okhi:android-okverify:20ed0828571b65e4ac9df524ce21f34bcacef9ba'
 }
