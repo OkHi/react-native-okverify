@@ -32,7 +32,7 @@ android {
     minSdkVersion 24
     targetSdkVersion getExtOrIntegerDefault('targetSdkVersion')
     versionCode 1
-    versionName "1.3.3"
+    versionName "1.3.9"
 
   }
 
@@ -134,5 +134,5 @@ dependencies {
   api 'com.facebook.react:react-native:+'
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
   implementation 'com.github.okhi:android-core:719e5ca9bb9ce227f0cbb364982f5373c617e330'
-  implementation 'com.github.okhi:android-okverify:9b3f06a664802a83acd0676e59668543ad2cfedd'
+  implementation 'com.github.okhi:android-okverify:c5f94c53ac1cf4002b97d6305400697bd49ea664'
 }
